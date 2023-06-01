@@ -25,6 +25,13 @@
                 <scope>import</scope>
             </dependency>
             <!-- 其他依赖声明 -->
+
+            <!--   MyBatisPlus依赖  -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus-generator-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -45,11 +52,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>${mybatis-plus-generator-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
             <version>${mybatis-plus-generator-version}</version>
         </dependency>
     </dependencies>
