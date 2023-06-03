@@ -57,6 +57,7 @@ public class PackageProperties implements IConfigProperties<PackageConfig.Builde
     public PackageProperties() {
         //自定义默认值,其他值默认为null即真实默认值以MyBatisPlus官网默认值一致
         this.parentPackage = "com.wp";
+        this.entityPackage = "domain.po";
         this.xmlPath = System.getProperty("user.dir") + "/src/main/resources"
                 + this.parentPackage + "mapper";
     }
@@ -91,6 +92,38 @@ public class PackageProperties implements IConfigProperties<PackageConfig.Builde
 
     public void setXmlPath(String xmlPath) {
         this.xmlPath = xmlPath;
+    }
+
+    public String getParentPackage() {
+        return parentPackage;
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public String getEntityPackage() {
+        return entityPackage;
+    }
+
+    public String getServicePackage() {
+        return servicePackage;
+    }
+
+    public String getServiceImplPackage() {
+        return serviceImplPackage;
+    }
+
+    public String getMapperPackage() {
+        return mapperPackage;
+    }
+
+    public String getControllerPackage() {
+        return controllerPackage;
+    }
+
+    public String getXmlPath() {
+        return xmlPath;
     }
 
     /**

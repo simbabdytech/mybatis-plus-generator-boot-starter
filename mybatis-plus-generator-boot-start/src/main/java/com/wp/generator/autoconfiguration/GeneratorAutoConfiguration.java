@@ -1,19 +1,13 @@
 package com.wp.generator.autoconfiguration;
 
-
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.fill.Column;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * starter模块自动配置类
@@ -69,15 +63,11 @@ public class GeneratorAutoConfiguration {
         generator.templateConfig(builder ->
                 templateProperties.config(builder).build());
 
-
-
+        //策略配置
         generator.strategyConfig(builder ->
-            strategyProperties.config(builder));
+            strategyProperties.config(builder).build());
 
         return generator;
     }
 
-    private List<String> getTables(String tables) {
-        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
-    }
 }

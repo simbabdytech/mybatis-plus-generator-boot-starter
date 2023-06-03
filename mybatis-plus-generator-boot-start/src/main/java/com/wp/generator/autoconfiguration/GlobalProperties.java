@@ -76,6 +76,30 @@ public class GlobalProperties implements IConfigProperties<GlobalConfig.Builder>
         this.commentDate = commentDate;
     }
 
+    public String getOutputDir() {
+        return outputDir;
+    }
+
+    public Boolean getOpenDir() {
+        return openDir;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Boolean getSwagger() {
+        return swagger;
+    }
+
+    public DateType getDateType() {
+        return dateType;
+    }
+
+    public Supplier<String> getCommentDate() {
+        return commentDate;
+    }
+
     /**
      * 全局配置核心方法
      *

@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author wp
  * @version 1.0
  */
-@ConfigurationProperties("global.template")
+@ConfigurationProperties("generator.template")
 public class TemplateProperties implements IConfigProperties<TemplateConfig.Builder> {
     /**
      * 实体模板文件路径
@@ -65,6 +65,30 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
 
     public void setServiceImplPath(String serviceImplPath) {
         this.serviceImplPath = serviceImplPath;
+    }
+
+    public String getEntityPath() {
+        return entityPath;
+    }
+
+    public String getControllerPath() {
+        return controllerPath;
+    }
+
+    public String getMapperPath() {
+        return mapperPath;
+    }
+
+    public String getXmlPath() {
+        return xmlPath;
+    }
+
+    public String getServicePath() {
+        return servicePath;
+    }
+
+    public String getServiceImplPath() {
+        return serviceImplPath;
     }
 
     /**
