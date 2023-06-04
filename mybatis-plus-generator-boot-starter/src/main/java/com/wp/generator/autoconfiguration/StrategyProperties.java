@@ -803,9 +803,9 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
                 builder.enableFileOverride();
             }
 
-            if (this.mapperAnnotation != null) {
-                builder.mapperAnnotation(this.mapperAnnotation);
-            }
+//            if (this.mapperAnnotation != null) {
+//                builder.mapperAnnotation(this.mapperAnnotation);
+//            }
 
             return builder;
         }
