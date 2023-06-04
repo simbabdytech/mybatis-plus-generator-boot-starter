@@ -11,8 +11,6 @@ import com.baomidou.mybatisplus.generator.config.po.LikeTable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import java.util.List;
 
 
 /**
@@ -274,26 +272,22 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         }
 
         if (this.tablePrefixes != null) {
-            List<String> strings = Arrays.
-                    stream(this.tablePrefixes.split(",")).toList();
+            String[] strings = this.tablePrefixes.split(",");
             builder.addTablePrefix(strings);
         }
 
         if (this.tableSuffixes != null) {
-            List<String> strings = Arrays.
-                    stream(this.tableSuffixes.split(",")).toList();
+            String[] strings = this.tableSuffixes.split(",");
             builder.addTableSuffix(strings);
         }
 
         if (this.fieldPrefixes != null) {
-            List<String> strings = Arrays.
-                    stream(this.fieldPrefixes.split(",")).toList();
+            String[] strings = this.fieldPrefixes.split(",");
             builder.addTablePrefix(strings);
         }
 
         if (this.fieldSuffixes != null) {
-            List<String> strings = Arrays.
-                    stream(this.fieldSuffixes.split(",")).toList();
+            String[] strings = this.fieldSuffixes.split(",");
             builder.addTablePrefix(strings);
         }
 
@@ -302,8 +296,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         }
 
         if(this.excludeTables != null) {
-            List<String> strings = Arrays.
-                    stream(excludeTables.split(",")).toList();
+            String[] strings = this.excludeTables.split(",");
             builder.addExclude(strings);
         }
 
@@ -810,9 +803,9 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
                 builder.enableFileOverride();
             }
 
-            if (this.mapperAnnotation != null) {
-                builder.mapperAnnotation(this.mapperAnnotation);
-            }
+//            if (this.mapperAnnotation != null) {
+//                builder.mapperAnnotation(this.mapperAnnotation);
+//            }
 
             return builder;
         }
