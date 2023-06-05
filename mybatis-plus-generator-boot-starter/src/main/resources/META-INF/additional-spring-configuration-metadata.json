@@ -1,0 +1,418 @@
+{
+  "groups": [
+    {
+      "name": "generator.global",
+      "type": "com.wp.generator.autoconfiguration.GlobalProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.package",
+      "type": "com.wp.generator.autoconfiguration.PackageProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.strategy",
+      "type": "com.wp.generator.autoconfiguration.StrategyProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.controller",
+      "type": "com.wp.generator.autoconfiguration.StrategyProperties$ControllerStrategyProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties",
+      "sourceMethod": "getController()"
+    },
+    {
+      "name": "generator.strategy.entity",
+      "type": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties",
+      "sourceMethod": "getEntity()"
+    },
+    {
+      "name": "generator.strategy.mapper",
+      "type": "com.wp.generator.autoconfiguration.StrategyProperties$MapperStrategyProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties",
+      "sourceMethod": "getMapper()"
+    },
+    {
+      "name": "generator.strategy.service",
+      "type": "com.wp.generator.autoconfiguration.StrategyProperties$ServiceStrategyProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties",
+      "sourceMethod": "getService()"
+    },
+    {
+      "name": "generator.template",
+      "type": "com.wp.generator.autoconfiguration.TemplateProperties",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "generator.global.output-dir",
+      "type": "java.lang.String",
+      "defaultValue": "${user.dir}/src/main/java" ,
+      "description": "文件输出路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.global.open-dir",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "是否打开文件(程序结束时).",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.global.author",
+      "type": "java.lang.String",
+      "description": "作者.",
+      "defaultValue": "wp",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.global.swagger",
+      "type": "java.lang.Boolean",
+      "description": "是否打开swagger.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.global.date-type",
+      "type": "com.baomidou.mybatisplus.generator.config.rules.DateType",
+      "description": "时间策略 详细可见TypeRegistry.class.",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.global.comment-date",
+      "type": "java.util.function.Supplier<java.lang.String>",
+      "description": "日期格式.",
+      "sourceType": "com.wp.generator.autoconfiguration.GlobalProperties"
+    },
+    {
+      "name": "generator.package.controller-package",
+      "type": "java.lang.String",
+      "description": "controller包名.",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.entity-package",
+      "type": "java.lang.String",
+      "description": "实体包名.",
+      "defaultValue": "domain.po",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.mapper-package",
+      "type": "java.lang.String",
+      "description": "mapper包名.",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.module-name",
+      "type": "java.lang.String",
+      "description": "模块名.",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.parent-package",
+      "type": "java.lang.String",
+      "description": "父包.",
+      "defaultValue": "com.wp",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.service-impl-package",
+      "type": "java.lang.String",
+      "description": "serviceImpl包名.",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.service-package",
+      "type": "java.lang.String",
+      "description": "service包名.",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.package.xml-path",
+      "type": "java.lang.String",
+      "description": "mapper.xml文件输出路径.",
+      "defaultValue": "${user.dir}/src/main/resources/com/wp/mapper",
+      "sourceType": "com.wp.generator.autoconfiguration.PackageProperties"
+    },
+    {
+      "name": "generator.strategy.capital-mode",
+      "type": "java.lang.Boolean",
+      "description": "是否开启大写命名 (应对区分大小写的数据库).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.controller.file-override",
+      "type": "java.lang.Boolean",
+      "description": "是否覆盖生成的文件.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ControllerStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.controller.format-file-name",
+      "type": "java.lang.String",
+      "description": "格式化文件名称.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ControllerStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.controller.rest-style",
+      "type": "java.lang.Boolean",
+      "description": "是否开启生成@RestController 控制器.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ControllerStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.active-record",
+      "type": "java.lang.Boolean",
+      "description": "是否开启 ActiveRecord 模型(将基础CRUD集成到Entity).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.chain-model",
+      "type": "java.lang.Boolean",
+      "description": "是否开启链式模型(setter方法返回this).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.column-constant",
+      "type": "java.lang.Boolean",
+      "description": "是否生成字段常量(映射对应表列名，适用于多数据库兼容系统).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.file-override",
+      "type": "java.lang.Boolean",
+      "description": "是否覆盖生成的文件.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.format-file-name",
+      "type": "java.lang.String",
+      "description": "格式化文件名称.",
+      "defaultValue": "%sPo",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.id-type",
+      "type": "com.baomidou.mybatisplus.annotation.IdType",
+      "description": "id生成策略.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.logic-delete-column-name",
+      "type": "java.lang.String",
+      "description": "逻辑删除数据库列名.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.logic-delete-property-name",
+      "type": "java.lang.String",
+      "description": "逻辑删除实体属性名.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.lombok",
+      "type": "java.lang.Boolean",
+      "description": "是否开启lombok.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.remove-is-prefix",
+      "type": "java.lang.Boolean",
+      "description": "是否开启 Boolean 类型字段移除 is 前缀.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.serializable",
+      "type": "java.lang.Boolean",
+      "description": "是否生成SerialVersionUID字段.",
+      "defaultValue": false,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.table-field-annotation",
+      "type": "java.lang.Boolean",
+      "description": "是否开启 @TableField 注解.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.version-column-name",
+      "type": "java.lang.String",
+      "description": "乐观锁数据库列名.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.entity.version-property-name",
+      "type": "java.lang.String",
+      "description": "乐观锁实体属性名.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$EntityStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.exclude-tables",
+      "type": "java.lang.String",
+      "description": "排除表(多个以英文逗号(,)隔开).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.field-prefixes",
+      "type": "java.lang.String",
+      "description": "过滤字段前缀(多个以英文逗号(,)隔开).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.field-suffixes",
+      "type": "java.lang.String",
+      "description": "过滤字段前缀(多个以英文逗号(,)隔开).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.include-tables",
+      "type": "java.lang.String",
+      "description": "包含表(多个以英文逗号(,)隔开) 不配置默认全部表.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.like-str",
+      "type": "java.lang.String",
+      "description": "模糊匹配字符串.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.mapper.file-override",
+      "type": "java.lang.Boolean",
+      "description": "是否覆盖生成的文件.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$MapperStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.mapper.format-mapper-file-name",
+      "type": "java.lang.String",
+      "description": "mapper格式化文件名称.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$MapperStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.mapper.format-xml-file-name",
+      "type": "java.lang.String",
+      "description": "xml格式化文件名称.",
+      "defaultValue": "%sMapper",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$MapperStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.mapper.mapper-annotation",
+      "type": {
+        "type": "java.lang.Class",
+        "description": "The annotation class.",
+        "nestedTypes": [
+          {
+            "name": "extends",
+            "type": "java.lang.Class",
+            "description": "The base class of the annotation.",
+            "defaultValue": "java.lang.annotation.Annotation"
+          }
+        ]
+      },
+      "description": "Mapper 注解.",
+      "defaultValue": "org.apache.ibatis.annotations.Mapper.class",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$MapperStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.schema",
+      "type": "java.lang.Boolean",
+      "description": "是否启用schema schema:逻辑层面的数据库(例如一个数据库中几个表一起组成的逻辑整体的一种关系).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.service.file-override",
+      "type": "java.lang.Boolean",
+      "description": "是否覆盖生成的文件.",
+      "defaultValue": true,
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ServiceStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.service.format-service-file-name",
+      "type": "java.lang.String",
+      "description": "Service格式化文件名称.",
+      "defaultValue": "%sService",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ServiceStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.service.format-service-impl-file-name",
+      "type": "java.lang.String",
+      "description": "ServiceImpl格式化文件名称.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties$ServiceStrategyProperties"
+    },
+    {
+      "name": "generator.strategy.skip-view",
+      "type": "java.lang.Boolean",
+      "description": "是否跳过视图.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.sql-filter",
+      "type": "java.lang.Boolean",
+      "description": "是否开启sql过滤 sql过滤是MyBatis防止sql注入的手段.",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.sql-like",
+      "type": "com.baomidou.mybatisplus.core.enums.SqlLike",
+      "description": "模糊匹配规则(匹配字符串%位置).",
+      "defaultValue": "SqlLike.DEFAULT",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.table-prefixes",
+      "type": "java.lang.String",
+      "description": "过滤表前缀(多个以英文逗号(,)隔开).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.strategy.table-suffixes",
+      "type": "java.lang.String",
+      "description": "过滤表后缀(多个以英文逗号(,)隔开).",
+      "sourceType": "com.wp.generator.autoconfiguration.StrategyProperties"
+    },
+    {
+      "name": "generator.template.controller-path",
+      "type": "java.lang.String",
+      "description": "controller模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    },
+    {
+      "name": "generator.template.entity-path",
+      "type": "java.lang.String",
+      "description": "实体模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    },
+    {
+      "name": "generator.template.mapper-path",
+      "type": "java.lang.String",
+      "description": "mapper模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    },
+    {
+      "name": "generator.template.service-impl-path",
+      "type": "java.lang.String",
+      "description": "serviceImpl模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    },
+    {
+      "name": "generator.template.service-path.",
+      "type": "java.lang.String",
+      "description": "service模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    },
+    {
+      "name": "generator.template.xml-path.",
+      "type": "java.lang.String",
+      "description": "mapper.xml模板文件路径.",
+      "sourceType": "com.wp.generator.autoconfiguration.TemplateProperties"
+    }
+  ],
+  "hints": []
+}
