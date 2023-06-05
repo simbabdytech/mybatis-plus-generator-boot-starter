@@ -2,7 +2,9 @@ package com.wp.generator.autoconfiguration;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnSingleCandidate;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,9 @@ import javax.sql.DataSource;
                                 PackageProperties.class,
                                 TemplateProperties.class,
                                 StrategyProperties.class})
-@ConditionalOnClass(name = "com.mysql.jdbc.Driver")
+@AutoConfigureAfter(DataSourceAutoConfiguration.class)
+@ConditionalOnSingleCandidate(DataSource.class)
+
 public class GeneratorAutoConfiguration {
 
     private final DataSource dataSource;
