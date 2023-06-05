@@ -26,7 +26,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
      * 是否开启大写命名
      * (应对区分大小写的数据库)
      */
-    private boolean isCapitalMode;
+    private boolean capitalMode;
 
     /**
      * 是否跳过视图
@@ -68,14 +68,14 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
      * 是否开启sql过滤
      * sql过滤是MyBatis防止sql注入的手段
      */
-    private boolean enableSqlFilter;
+    private boolean sqlFilter;
 
     /**
      * 是否启用schema
      * schema:逻辑层面的数据库(例如一个数据库中几个表一起组成的逻辑整体的一种关系)
      * TODO 未深入了解, 下次深入一下
      */
-    private boolean enableSchema;
+    private boolean schema;
 
     /**
      * 模糊匹配规则(匹配字符串%位置)
@@ -116,10 +116,15 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         //设置默认值
         this.sqlLike = SqlLike.DEFAULT;
         this.isLike = true;
+
+        this.entity = new EntityStrategyProperties();
+        this.controller = new ControllerStrategyProperties();
+        this.service = new ServiceStrategyProperties();
+        this.mapper = new MapperStrategyProperties();
     }
 
     public void setCapitalMode(boolean capitalMode) {
-        isCapitalMode = capitalMode;
+        this.capitalMode = capitalMode;
     }
 
     public void setSkipView(boolean skipView) {
@@ -150,12 +155,12 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         this.excludeTables = excludeTables;
     }
 
-    public void setEnableSqlFilter(boolean enableSqlFilter) {
-        this.enableSqlFilter = enableSqlFilter;
+    public void setSqlFilter(boolean sqlFilter) {
+        this.sqlFilter = sqlFilter;
     }
 
-    public void setEnableSchema(boolean enableSchema) {
-        this.enableSchema = enableSchema;
+    public void setSchema(boolean schema) {
+        this.schema = schema;
     }
 
     public void setSqlLike(SqlLike sqlLike) {
@@ -187,7 +192,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
     }
 
     public boolean isCapitalMode() {
-        return isCapitalMode;
+        return capitalMode;
     }
 
     public boolean isSkipView() {
@@ -218,12 +223,12 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         return excludeTables;
     }
 
-    public boolean isEnableSqlFilter() {
-        return enableSqlFilter;
+    public boolean isSqlFilter() {
+        return sqlFilter;
     }
 
-    public boolean isEnableSchema() {
-        return enableSchema;
+    public boolean isSchema() {
+        return schema;
     }
 
     public SqlLike getSqlLike() {
@@ -263,7 +268,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
     @Override
     public StrategyConfig.Builder config(StrategyConfig.Builder builder) {
         //策略配置
-        if (this.isCapitalMode == Boolean.TRUE) {
+        if (this.capitalMode == Boolean.TRUE) {
             builder.enableCapitalMode();
         }
 
@@ -300,11 +305,11 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
             builder.addExclude(strings);
         }
 
-        if (this.enableSqlFilter == Boolean.FALSE) {
+        if (this.sqlFilter == Boolean.FALSE) {
             builder.disableSqlFilter();
         }
 
-        if (this.enableSchema == Boolean.TRUE) {
+        if (this.schema == Boolean.TRUE) {
             builder.enableSchema();
         }
 
@@ -319,20 +324,28 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
 
 
         //实体策略配置
-        Entity.Builder entityBuilder = builder.entityBuilder();
-        this.entity.config(entityBuilder);
+        if (this.entity != null) {
+            Entity.Builder entityBuilder = builder.entityBuilder();
+            this.entity.config(entityBuilder);
+        }
 
         //controller策略配置
-        Controller.Builder controllerBuilder = builder.controllerBuilder();
-        this.controller.config(controllerBuilder);
+        if (this.controller != null) {
+            Controller.Builder controllerBuilder = builder.controllerBuilder();
+            this.controller.config(controllerBuilder);
+        }
 
         //service策略配置
-        Service.Builder serviceBuilder = builder.serviceBuilder();
-        this.service.config(serviceBuilder);
+        if (this.service != null) {
+            Service.Builder serviceBuilder = builder.serviceBuilder();
+            this.service.config(serviceBuilder);
+        }
 
         //mapper策略配置
-        Mapper.Builder mapperBuilder = builder.mapperBuilder();
-        this.mapper.config(mapperBuilder);
+        if (this.mapper != null) {
+            Mapper.Builder mapperBuilder = builder.mapperBuilder();
+            this.mapper.config(mapperBuilder);
+        }
 
         return builder;
     }
@@ -344,7 +357,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         /**
          * 是否生成SerialVersionUID字段
          */
-        private Boolean isSerializable;
+        private Boolean serializable;
 
         /**
          * 是否覆盖生成的文件
@@ -412,7 +425,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         private String formatFileName;
 
         public EntityStrategyProperties() {
-            this.isSerializable = false;
+            this.serializable = false;
             this.fileOverride = true;
             this.lombok = true;
             this.tableFieldAnnotation = true;
@@ -420,11 +433,11 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         }
 
         public Boolean getSerializable() {
-            return isSerializable;
+            return serializable;
         }
 
         public void setSerializable(Boolean serializable) {
-            isSerializable = serializable;
+            this.serializable = serializable;
         }
 
         public Boolean getFileOverride() {
@@ -536,7 +549,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
          */
         @Override
         public Entity.Builder config(Entity.Builder builder) {
-            if (isSerializable == Boolean.FALSE) {
+            if (serializable == Boolean.FALSE) {
                 builder.disableSerialVersionUID();
             }
 
@@ -803,9 +816,9 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
                 builder.enableFileOverride();
             }
 
-//            if (this.mapperAnnotation != null) {
-//                builder.mapperAnnotation(this.mapperAnnotation);
-//            }
+            if (this.mapperAnnotation != null) {
+                builder.mapperAnnotation(this.mapperAnnotation);
+            }
 
             return builder;
         }

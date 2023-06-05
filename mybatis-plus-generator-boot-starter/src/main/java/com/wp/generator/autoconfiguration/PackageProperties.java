@@ -58,8 +58,8 @@ public class PackageProperties implements IConfigProperties<PackageConfig.Builde
         //自定义默认值,其他值默认为null即真实默认值以MyBatisPlus官网默认值一致
         this.parentPackage = "com.wp";
         this.entityPackage = "domain.po";
-        this.xmlPath = System.getProperty("user.dir") + "/src/main/resources"
-                + this.parentPackage + "mapper";
+        this.xmlPath = System.getProperty("user.dir") + "/src/main/resources/"
+                + this.parentPackage + "/mapper";
     }
 
     public void setParentPackage(String parentPackage) {

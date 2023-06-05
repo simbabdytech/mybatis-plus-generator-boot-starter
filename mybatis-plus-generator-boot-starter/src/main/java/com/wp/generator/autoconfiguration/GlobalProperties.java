@@ -50,6 +50,7 @@ public class GlobalProperties implements IConfigProperties<GlobalConfig.Builder>
         this.outputDir = System.getProperty("user.dir") + "/src/main/java";
         this.openDir = false;
         this.author = "wp";
+        this.swagger = true;
     }
 
     public void setOutputDir(String outputDir) {

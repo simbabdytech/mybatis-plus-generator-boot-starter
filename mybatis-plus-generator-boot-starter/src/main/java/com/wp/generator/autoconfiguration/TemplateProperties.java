@@ -16,7 +16,6 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
      * 实体模板文件路径
      */
     private String entityPath;
-
     /**
      * controller模板文件路径
      */
