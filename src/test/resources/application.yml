@@ -11,3 +11,4 @@ generator:
     xml-path: /Users/simba/github/my/mybatis-plus-generator-boot-starter/src/test/resources/com.wp.generator_code_cake/mapper
   global:
     output-dir: /Users/simba/github/my/mybatis-plus-generator-boot-starter/src/test/java
+

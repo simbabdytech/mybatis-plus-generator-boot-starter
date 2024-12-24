@@ -14,15 +14,12 @@ import javax.sql.DataSource;
 /**
  * starter模块自动配置类
  * 用于初始化FastAutoGenerator Bean对象
- *
- * @author wp
- * @version 1.0
  */
 @Configuration
 @EnableConfigurationProperties({GlobalProperties.class,
-                                PackageProperties.class,
-                                TemplateProperties.class,
-                                StrategyProperties.class})
+        PackageProperties.class,
+        TemplateProperties.class,
+        StrategyProperties.class})
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
 @ConditionalOnSingleCandidate(DataSource.class)
 
@@ -53,7 +50,7 @@ public class GeneratorAutoConfiguration {
 
         //数据源配置
         generator = FastAutoGenerator.create
-                        (new DataSourceConfig.Builder(dataSource));
+                (new DataSourceConfig.Builder(dataSource));
 
         //全局配置
         generator.globalConfig(builder ->
@@ -69,7 +66,7 @@ public class GeneratorAutoConfiguration {
 
         //策略配置
         generator.strategyConfig(builder ->
-            strategyProperties.config(builder).build());
+                strategyProperties.config(builder).build());
 
         return generator;
     }

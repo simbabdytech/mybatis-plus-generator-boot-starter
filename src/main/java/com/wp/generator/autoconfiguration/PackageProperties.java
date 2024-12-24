@@ -8,9 +8,6 @@ import java.util.Collections;
 
 /**
  * 包配置接收类
- *
- * @author wp
- * @version 1.0
  */
 @ConfigurationProperties("generator.package")
 public class PackageProperties implements IConfigProperties<PackageConfig.Builder> {

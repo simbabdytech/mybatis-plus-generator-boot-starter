@@ -8,9 +8,6 @@ import java.util.function.Supplier;
 
 /**
  * 全局配置接收类
- *
- * @author wp
- * @version 1.0
  */
 @ConfigurationProperties(prefix = "generator.global")
 public class GlobalProperties implements IConfigProperties<GlobalConfig.Builder> {
@@ -130,7 +127,7 @@ public class GlobalProperties implements IConfigProperties<GlobalConfig.Builder>
             builder.dateType(this.dateType);
         }
 
-        if(this.commentDate != null) {
+        if (this.commentDate != null) {
             builder.commentDate(this.commentDate);
         }
 

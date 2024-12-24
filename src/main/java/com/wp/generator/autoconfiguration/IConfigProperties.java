@@ -4,11 +4,8 @@ import com.baomidou.mybatisplus.generator.config.IConfigBuilder;
 
 /**
  * 配置接收接口
- *
- * @author wp
- * @version 1.0
  */
-public interface IConfigProperties <T extends IConfigBuilder<?>> {
+public interface IConfigProperties<T extends IConfigBuilder<?>> {
     /**
      * 配置构建类的配置方法
      *

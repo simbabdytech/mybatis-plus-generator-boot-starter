@@ -15,9 +15,6 @@ import java.lang.annotation.Annotation;
 
 /**
  * 策略配置接收类
- *
- * @author wp
- * @version 1.0
  */
 @ConfigurationProperties("generator.strategy")
 public class StrategyProperties implements IConfigProperties<StrategyConfig.Builder> {
@@ -73,7 +70,6 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
     /**
      * 是否启用schema
      * schema:逻辑层面的数据库(例如一个数据库中几个表一起组成的逻辑整体的一种关系)
-     * TODO 未深入了解, 下次深入一下
      */
     private boolean schema;
 
@@ -300,7 +296,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
             builder.addInclude(includeTables);
         }
 
-        if(this.excludeTables != null) {
+        if (this.excludeTables != null) {
             String[] strings = this.excludeTables.split(",");
             builder.addExclude(strings);
         }
@@ -316,8 +312,7 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
         if (this.likeStr != null) {
             if (this.isLike) {
                 builder.likeTable(new LikeTable(this.likeStr, this.sqlLike));
-            }
-            else {
+            } else {
                 builder.notLikeTable(new LikeTable(this.likeStr, this.sqlLike));
             }
         }
@@ -823,6 +818,5 @@ public class StrategyProperties implements IConfigProperties<StrategyConfig.Buil
             return builder;
         }
     }
-
-
 }
+

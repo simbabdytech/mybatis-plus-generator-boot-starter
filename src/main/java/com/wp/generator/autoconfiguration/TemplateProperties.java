@@ -6,9 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * 模板配置接收类
- *
- * @author wp
- * @version 1.0
  */
 @ConfigurationProperties("generator.template")
 public class TemplateProperties implements IConfigProperties<TemplateConfig.Builder> {
@@ -101,8 +98,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
         if (this.entityPath != null) {
             if (this.entityPath.equals("null")) {
                 builder.disable(TemplateType.ENTITY);
-            }
-            else {
+            } else {
                 builder.entity(this.entityPath);
             }
         }
@@ -110,8 +106,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
         if (this.controllerPath != null) {
             if (this.controllerPath.equals("null")) {
                 builder.disable(TemplateType.CONTROLLER);
-            }
-            else {
+            } else {
                 builder.controller(this.controllerPath);
             }
         }
@@ -119,8 +114,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
         if (this.mapperPath != null) {
             if (this.mapperPath.equals("null")) {
                 builder.disable(TemplateType.MAPPER);
-            }
-            else {
+            } else {
                 builder.mapper(this.mapperPath);
             }
         }
@@ -128,8 +122,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
         if (this.xmlPath != null) {
             if (this.xmlPath.equals("null")) {
                 builder.disable(TemplateType.XML);
-            }
-            else {
+            } else {
                 builder.xml(this.xmlPath);
             }
         }
@@ -137,8 +130,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
         if (this.servicePath != null) {
             if (this.servicePath.equals("null")) {
                 builder.disable(TemplateType.SERVICE);
-            }
-            else {
+            } else {
                 builder.service(this.servicePath);
             }
         }
@@ -147,8 +139,7 @@ public class TemplateProperties implements IConfigProperties<TemplateConfig.Buil
             //不生成模板文件
             if (this.serviceImplPath.equals("null")) {
                 builder.disable(TemplateType.SERVICE_IMPL);
-            }
-            else {
+            } else {
                 builder.serviceImpl(this.serviceImplPath);
             }
         }
