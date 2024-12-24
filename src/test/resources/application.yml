@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/example
+    password: 123456
+    username: pig
+
+generator:
+  package:
+    module-name: generator_code_cake
+    xml-path: /Users/simba/github/my/mybatis-plus-generator-boot-starter/src/test/resources/com.wp.generator_code_cake/mapper
+  global:
+    output-dir: /Users/simba/github/my/mybatis-plus-generator-boot-starter/src/test/java
